@@ -1,0 +1,30 @@
+<div class="row justify-content-lg-center">
+  <div class="col-lg-6">
+    <mdb-card>
+      <mdb-card-header class="primary-color white-text">
+        <h4 class="text-center pt-2"><strong>Login</strong></h4>
+      </mdb-card-header>
+      <mdb-card-body>
+        <form (ngSubmit)="tryLogin(loginForm.value)" #loginForm="ngForm" class="text-center">
+          <span class="red-text" *ngIf="errorMessage">{{ errorMessage }}</span>
+          <!-- Email -->
+          <div class="md-form">
+            <input [(ngModel)]="loginFormEmail" mdbInputDirective type="email" name="loginFormEmail" id="loginFormEmail" class="form-control" required>
+            <label for="loginFormEmail">E-mail</label>
+          </div>
+          <!-- Password -->
+          <div class="md-form">
+            <input [(ngModel)]="loginFormPassword" mdbInputDirective type="password" name="loginFormPassword" id="loginFormPassword" class="form-control" required>
+            <label for="loginFormPassword">Password</label>
+          </div>
+          <!-- Sign up button -->
+          <button [disabled]="!loginForm.form.valid" mdbBtn type="submit" color="primary" rounded="true" class="waves-light" mdbWavesEffect>Login</button>
+          <!-- Back link -->
+          <div class="flex-row">
+            <a routerLink="/signup" class="blue-text">No account yet? Create an account!</a>
+          </div>
+        </form>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+</div>
